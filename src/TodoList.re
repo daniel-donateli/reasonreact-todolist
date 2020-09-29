@@ -1,13 +1,13 @@
 open State;
 
 [@react.component]
-let make = (~todos, ~icon, ~dispatch) => {
+let make = (~todos, ~dispatch) => {
   
   <ul>
     {
       todos 
       |> 
-      List.map(todo => <TodoItem todo icon dispatch />)
+      List.map(todo => <TodoItem todo dispatch />)
       |>
       Array.of_list
       |>

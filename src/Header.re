@@ -12,11 +12,12 @@ let make = (~dispatch) => {
   let onSubmit = (event) => {
     ReactEvent.Synthetic.preventDefault(event);
     dispatch(Add(value));
+    setValue((_) => "");
   };
   
   <form onSubmit>
     <h2>{"What do you want to do?" |> React.string }</h2>
     <input value onChange />
-    <button>{"Add" |> React.string}</button>
+    <button>{"Add Task" |> React.string}</button>
   </form>;
 }

@@ -1,13 +1,13 @@
 open State;
 
 [@react.component]
-let make = (~todo, ~icon, ~dispatch) => {
+let make = (~todo, ~dispatch) => {
   
   <div>
     <li key={string_of_int(todo.id)}>
-      {todo.text |> React.string}
-      <span onClick={_ => dispatch(Delete(todo.id))}>{"  X" |> React.string}</span>
+      <span>{todo.text |> React.string}
+      </span>
+      <i className="material-icons md-18" onClick={_ => dispatch(Delete(todo.id))}>{"delete_forever" |> React.string}</i>
     </li>
-    //<img src={icon} width="30" height="30" alt="delete" />
   </div>;
 };
