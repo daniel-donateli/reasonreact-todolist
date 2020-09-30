@@ -26,7 +26,8 @@ let reducer = (state, action) => {
       { todos: List.append(state.todos, [{ text:str, id: getNewId(), completed: false }]) }
       : state
     | Delete(id) => { todos: state.todos |> List.filter(x => x.id !== id) }
-    | _ => state
+    | Check(id) => { todos: state.todos |> List.map(x => x.id === id ? 
+      { ...x, completed: !x.completed } : x) }
   };
 };
 
