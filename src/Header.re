@@ -4,12 +4,12 @@ open State;
 let make = (~dispatch) => {
   let (value, setValue) = React.useState(() => "");
 
-  let onChange = (e): unit => {
-    let task = e->ReactEvent.Form.target##value;
+  let onChange = event => {
+    let task = event->ReactEvent.Form.target##value;
     setValue(task);
   };
 
-  let onSubmit = (event) => {
+  let onSubmit = event => {
     ReactEvent.Synthetic.preventDefault(event);
     dispatch(Add(value));
     setValue((_) => "");

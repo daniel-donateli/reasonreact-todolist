@@ -5,7 +5,7 @@ let make = () => {
   let (state, dispatch) = React.useReducer(reducer, initialState); 
   
   
-  <div>
+  <div className="container">
     <Header dispatch />
     <TodoList todos={state.todos} dispatch/>
   </div>;

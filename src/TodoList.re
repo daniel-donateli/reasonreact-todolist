@@ -1,8 +1,9 @@
-open State;
+
 
 [@react.component]
 let make = (~todos, ~dispatch) => {
   
+  todos |> List.length > 0 ?
   <ul>
     {
       todos 
@@ -13,5 +14,6 @@ let make = (~todos, ~dispatch) => {
       |>
       React.array
     }
-  </ul>;
+  </ul>
+  : <p>{"No tasks to do" |> React.string}</p>
 };
